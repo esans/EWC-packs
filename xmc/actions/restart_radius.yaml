@@ -1,0 +1,14 @@
+---
+name: restart_radius
+pack: xmc
+runner_type: "mistral-v2"
+description: Restart Radius Service on Enterasys Switch
+enabled: true
+entry_point: workflows/restart_radius.yaml
+
+parameters:
+    deviceip:
+        type: "string"
+        required: true
+        description: "Remote device IP or hostname"
+        

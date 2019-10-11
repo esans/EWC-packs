@@ -1,0 +1,21 @@
+---
+description: Get device configration information and email it to support group
+name: get_device_config
+pack: xmc
+ref: get_device_config
+tags: []
+type:
+  ref: standard
+  parameters:
+enabled: true
+
+trigger:
+  ref: standard
+  type: core.st2.webhook
+  parameters:
+    url: get_device_config
+criteria: {}
+action:
+  ref: xmc.get_device_config
+  parameters:
+    deviceip: '{{trigger.body.deviceip}}'

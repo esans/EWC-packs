@@ -1,0 +1,23 @@
+---
+description: Remove operator limit configuration
+
+name: remove_operator_limit_port
+pack: xmc
+ref: xmc.remove_operator_limit_port
+tags: []
+type:
+  ref: standard
+  parameters:
+enabled: true
+
+trigger:
+  ref: standard
+  type: core.st2.webhook
+  parameters:
+    url: remove_operator_limit_port
+criteria: {}
+action:
+  ref: xmc.remove_operator_limit_port
+  parameters:
+    deviceip: '{{trigger.body.deviceip}}'
+    message: '{{trigger.body.message}}'

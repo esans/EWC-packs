@@ -1,0 +1,55 @@
+---
+version: '2.0'
+
+xmc.remove_operator_limit_port:
+    input:
+        - deviceip
+        - message
+
+    tasks:
+        get_port_number:
+            action: xmc.parse_string
+            input:
+                message: '<% $.message %>'
+                key: 'Port'
+            publish: 
+                port: <% task(get_port_number).result.result.port %>
+            on-success:
+                - get_device_info
+            on-error:
+                - failure
+
+        get_device_info:
+            action: xmc.get_device_info
+            input:
+                deviceip: '<% $.deviceip %>'
+            publish: 
+                user: <% task(get_device_info).result.result.user %>
+                password: <% task(get_device_info).result.result.password %>
+                devicefamily: <% task(get_device_info).result.result.devicefamily %>
+            on-success:
+                - remove_operator_limit_port_cmds
+            on-error:
+                - failure
+
+        remove_operator_limit_port_cmds:
+            action: xmc.remote
+            input:
+                cmds: 'unconfigure inline-power operator-limit port <% $.port %>,disable inline-power port <% $.port %>,enable inline-power port <% $.port %>'
+                deviceip: '<% $.deviceip %>'
+                user: '<% $.user %>'
+                password: '<% $.password %>'
+                devicefamily: '<% $.devicefamily %>'
+            on-success:
+                - success
+            on-error:
+                - failure
+                
+        success:
+            action: core.local
+            input: 
+                cmd: 'echo \"Successfully removed operator limit configuration for <% $.deviceip %> port <% $.port %>\"'  
+        failure:
+            action: core.local
+            input: 
+                cmd: 'echo \"Falied to remove operator limit configuration for <% $.deviceip %> port <% $.port %>\" ; exit 1'

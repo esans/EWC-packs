@@ -1,0 +1,13 @@
+---
+name: parse_dns_message
+pack: xmc
+runner_type: "python-script"
+description: parse DNS message string
+enabled: true
+entry_point: parse_dns_message.py
+parameters:
+    message:
+        type: string
+        description: Message string
+        required: true
+        position: 0

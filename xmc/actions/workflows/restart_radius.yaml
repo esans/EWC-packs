@@ -1,0 +1,63 @@
+---
+version: '2.0'
+
+xmc.restart_radius:
+    input:
+        - deviceip
+
+    tasks:
+        get_device_info:
+            action: xmc.get_device_info
+            input:
+                deviceip: '<% $.deviceip %>'
+            publish: 
+                user: <% task(get_device_info).result.result.user %>
+                password: <% task(get_device_info).result.result.password %>
+                devicefamily: <% task(get_device_info).result.result.devicefamily %>
+            on-success:
+                - disable_cmds
+            on-error:
+                - failure
+                
+        disable_cmds:
+            action: 'xmc.remote'
+            input:
+                cmds: 'Set Macauthentication disable,Set dot1x disable'
+                deviceip: '<% $.deviceip %>'
+                user: '<% $.user %>'
+                password: '<% $.password %>'
+                devicefamily: '<% $.devicefamily %>'  
+            on-success: 
+                - sleep
+            on-error: 
+                - failure
+                
+        sleep:
+            action: 'core.local'
+            input:
+                cmd: 'sleep 30'
+            on-success: 
+                - enable_cmds
+            on-error: 
+                - failure
+
+        enable_cmds:
+            action: "xmc.remote"
+            input:
+                cmds: 'Set Macauthentication enable,Set dot1x enable'
+                deviceip: '<% $.deviceip %>'
+                user: '<% $.user %>'
+                password: '<% $.password %>'
+                devicefamily: '<% $.devicefamily %>'  
+            on-success: 
+                - success
+            on-error: 
+                - failure
+        success:
+            action: core.local
+            input: 
+                cmd: 'echo \"Successfully restarted radius\"'  
+        failure:
+            action: core.local
+            input: 
+                cmd: 'echo \"Falied to restar radius\" ; exit 1'

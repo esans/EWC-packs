@@ -1,0 +1,25 @@
+---
+  xmc_ip:
+    description: "IP address of XMC"
+    type: "string"
+    secret: false
+    required: true
+    default: "192.168.20.155"
+  xmc_fqdn:
+    description: "FQDN of XMC"
+    type: "string"
+    secret: false
+    required: true
+    default: "xmc-beta.showroom.fr"
+  xmc_username:
+    description: "Username used to XMC authenticate ."
+    type: "string"
+    secret: false
+    required: true
+    default: "root"
+  st2_api_key:
+    description: "ST2 Long Lived API Key."
+    type: "string"
+    secret: false
+    required: true
+    default: "NGYzZWQ2YjBhMmViYzE2MzIwNmJiYmE3MjU1MTE5ZTgxNWE1ZmVjODkyMjBlMDU4MzVmNzgwYzBjZWQxODBlNQ"

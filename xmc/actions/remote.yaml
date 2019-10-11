@@ -1,0 +1,33 @@
+---
+name: remote
+pack: xmc
+runner_type: "local-shell-script"
+description: SSH to remote device and issue command
+enabled: true
+entry_point: remote_client.py
+parameters:
+    cmds:
+        type: string
+        description: Commands that going to be issued on remote device
+        required: true
+        position: 0
+    deviceip:
+        type: string
+        description: Remote device IP address
+        required: true
+        position: 1
+    user:
+        type: string
+        description: User name used to login the device
+        required: true
+        position: 2
+    password:
+        type: string
+        description: Password used to login the device
+        required: true
+        position: 3
+    devicefamily:
+        type: string
+        description: Device family
+        required: true
+        position: 4

@@ -1,0 +1,13 @@
+---
+name: delete_firewall_policy
+pack: xmc
+runner_type: "mistral-v2"
+description: Delete threat IP from firwall policy table
+enabled: true
+entry_point: workflows/delete_firewall_policy.yaml
+
+parameters:
+    threat_ip:
+        type: "string" 
+        description: "Threat IP address that is going to be deleted"
+        required: True
