@@ -1,0 +1,23 @@
+---
+description: Ping device and send email to different groups depended on the ping result
+name: ping_validation
+pack: xmc
+ref: ping_validation
+tags: []
+type:
+  ref: standard
+  parameters:
+enabled: true
+
+trigger:
+  ref: standard
+  type: core.st2.webhook
+  parameters:
+    url: ping_validation
+criteria: {}
+action:
+  ref: xmc.ping_validation
+  parameters:
+    deviceip: '{{trigger.body.deviceip}}'
+    message: '{{trigger.body.message}}'
+    severity: '{{trigger.body.severity}}'

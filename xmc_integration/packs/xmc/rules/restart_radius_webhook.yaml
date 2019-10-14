@@ -1,0 +1,22 @@
+---
+description: Restart radius service on Enterasys Switch 
+name: restart_radius
+pack: xmc
+ref: xmc.restart_radius
+tags: []
+type:
+  ref: standard
+  parameters:
+enabled: true
+
+trigger:
+  ref: standard
+  type: core.st2.webhook
+  parameters:
+    url: restart_radius
+criteria: {}
+action:
+  ref: xmc.restart_radius
+  parameters:
+    deviceip: '{{trigger.body.deviceip}}'
+

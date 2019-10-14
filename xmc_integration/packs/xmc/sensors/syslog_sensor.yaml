@@ -1,0 +1,11 @@
+---
+  class_name: "SyslogSensor"
+  entry_point: "SyslogSensor.py"
+  description: "Sensor for syslog and filter out message with match pattern"
+  trigger_types:
+    -
+      name: syslog_event
+      description: "Trigger indicates a Syslog pattern match."
+      payload_schema:
+        type: object
+

@@ -1,0 +1,25 @@
+---
+version: '2.0'
+
+xmc.delete_firewall_policy:
+    input:
+        - threat_ip
+
+    tasks:
+        delete_policy:
+            action: fortinet.delete_fortinet_policy
+            input:
+                threat_ip: '<% $.threat_ip %>'
+            on-success:
+                - success_msg
+            on-error:
+                - failure_msg
+        success_msg:
+            action: core.local
+            input: 
+                cmd: 'echo "Successfully excuted workflow delete_firewall_policy"'
+        failure_msg:
+            action: core.local
+            input: 
+                cmd: 'echo "Failed to excute workflow delete_firewall_policy" ; exit 1'
+

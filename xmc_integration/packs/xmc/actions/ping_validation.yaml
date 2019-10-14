@@ -1,0 +1,22 @@
+---  
+name: ping_validation
+pack: xmc
+runner_type: mistral-v2
+description: Ping device and send email to different groups depended on the ping result
+enabled: true
+entry_point: workflows/ping_validation.yaml
+
+parameters:
+    deviceip:
+        type: string
+        description: Device IP
+        required: true
+    message:
+        type: string
+        description: Original SNMP alarm message
+        required: true
+    severity:
+        type: string
+        description: Original SNMP alarm message serverity
+        required: true
+       

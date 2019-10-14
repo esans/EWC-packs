@@ -1,0 +1,7 @@
+---
+name: get_list_firewall_services
+pack: san
+runner_type: "python-script"
+description: Get list of firewall services
+enabled: true
+entry_point: python_actions/get_list_firewall_services.py

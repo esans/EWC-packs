@@ -1,0 +1,19 @@
+name: create_servicenow_url
+pack: san
+runner_type: python-script
+description: "Create ServiceNow ticket URL"
+enabled: true
+entry_point: "python_actions/create_servicenow_url.py"
+parameters:
+    domain_link:
+        type: "string"
+        description: "ServiceNow Domain link"
+        required: true
+    table:
+        type: "string"
+        description: "ServiceNow table name"
+        required: true
+    sys_id:
+        type: "string"
+        description: "ServiceNow ticket system id"
+        required: true

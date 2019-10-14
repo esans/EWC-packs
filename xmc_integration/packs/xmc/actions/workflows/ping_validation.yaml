@@ -1,0 +1,47 @@
+---
+version: '2.0'
+
+xmc.ping_validation:
+    input:
+        - deviceip
+        - message
+        - severity
+    tasks:
+        ping_device:
+            action: core.local
+            input:
+                cmd: 'ping -c 4 <% $.deviceip %>'
+            on-success:
+                - send_success_ping_email
+            on-error:
+                - send_failure_ping_email
+        send_success_ping_email:
+            action: core.sendmail
+            input:
+                from: 'st2admin'
+                to: 'xmcsupport@extreme.com'
+                subject: 'Device <% $.deviceip %> is reachable'
+                body: 'Successfully pinged deivce <% $.deviceip %>'
+            on-success:
+                - success
+            on-error:
+                - failure 
+        send_failure_ping_email:
+            action: core.sendmail
+            input:
+                from: 'st2admin'
+                to: 'xmcsupport@extreme.com'
+                subject: 'Device <% $.deviceip %> is unreachable'
+                body: 'Device <% $.deviceip %> is unreachable. Please contact your system administrator!'
+            on-success:
+                - success
+            on-error:
+                - failure 
+        failure:
+            action: core.local
+            input: 
+                cmd: 'echo "Failed to excute action"'
+        success:
+            action: core.local
+            input: 
+                cmd: 'echo "Successfully excuted action"; exit 1'    

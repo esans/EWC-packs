@@ -1,0 +1,27 @@
+---
+name: create_jira_ticket
+pack: san
+runner_type: "mistral-v2"
+description: Create JIRA issue about the incident
+enabled: true
+entry_point: workflows/create_jira_ticket.yaml
+
+parameters:
+  jira_project:
+    type: string
+    description: Name of the JIRA project where an issue is created.
+    required: true
+  jira_issue_type:
+    type: string
+    description: Issue type to use when creating a JIRA issue.
+    required: true
+    default: "IT Help"
+  ticket_summary:
+    type: string
+    description: Summary of issue to use when creating a JIRA issue.
+    required: true
+  ticket_description: 
+    type: string
+    description: Description of issue to use when creating a JIRA issue.
+    required: true
+

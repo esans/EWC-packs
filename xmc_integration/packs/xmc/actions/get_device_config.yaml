@@ -1,0 +1,12 @@
+---  
+name: get_device_config
+pack: xmc
+runner_type: mistral-v2
+description: Get device configration information and email it to support group
+enabled: true
+entry_point: workflows/get_device_config.yaml
+parameters:
+    deviceip:
+        type: "string"
+        required: true
+        description: "Remote device IP or hostname"

@@ -1,0 +1,65 @@
+---
+version: '2.0'
+
+xmc.get_device_config:
+    input:
+        - deviceip
+
+    tasks:
+        get_device_info:
+            action: xmc.get_device_info
+            input:
+                deviceip: '<% $.deviceip %>'
+            publish: 
+                user: <% task(get_device_info).result.result.user %>
+                password: <% task(get_device_info).result.result.password %>
+                devicefamily: <% task(get_device_info).result.result.devicefamily %>
+            on-success:
+                - expect_remote_cmd
+            on-error:
+                - failure
+
+        expect_remote_cmd:
+            action: xmc.remote
+            input:
+                cmds: 'show config'
+                deviceip: '<% $.deviceip %>'
+                user: '<% $.user %>'
+                password: '<% $.password %>' 
+                devicefamily: '<% $.devicefamily %>'
+            on-success:
+                - send_config_file
+            on-error:
+                - send_failure_email
+
+        send_config_file:
+            action: core.sendmail
+            input:
+                from: 'st2admin'
+                to: 'xmcsupport@extreme.com'
+                subject: 'Device <% $.deviceip %> configuration file'
+                body: 'Please check out attached configuration file for device'
+                attachments: '/home/stanley/<% $.deviceip %>.txt'
+            on-success:
+                - success
+            on-error:
+                - failure 
+        send_failure_email:
+            action: core.sendmail
+            input:
+                from: 'st2admin'
+                to: 'xmcsupport@extreme.com'
+                subject: 'Device <% $.deviceip %> is unreachable'
+                body: 'Failed to issue command <% $.cmd %> in remote device <% $.deviceip %>. Please contact your system administrator!'
+            on-success:
+                - success
+            on-error:
+                - failure 
+        failure:
+            action: core.local
+            input: 
+                cmd: 'echo \"Failed to excute action. Please check file /home/stanley/<% $.deviceip %>.txt\"; exit 1'
+        success:
+            action: core.local
+            input: 
+                cmd: 'echo \"Successfully excuted action. Removing <% $.deviceip %>.txt\"; rm -rf /home/stanley/<% $.deviceip %>.txt'    

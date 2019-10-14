@@ -1,0 +1,22 @@
+version: '2.0'
+
+san.create_jira_ticket:
+    input:
+        - jira_project
+        - jira_issue_type
+        - ticket_summary
+        - ticket_description
+      
+    tasks:
+        create_jira_issue:
+            action: jira.create_issue
+            input:
+                summary: <% $.ticket_summary %>
+                type: <% $.jira_issue_type %>
+                description: <% $.ticket_description %>
+                project: <% $.jira_project %>
+            publish:
+                jiraUrl: <% task(create_jira_issue).result.result.url %>
+
+
+

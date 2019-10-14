@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# networkingreconfig:  Re-configure network with new IP/FQDN/DNS
+# 
+# chkconfig: 2345 9 03
+# description: Re-configure network with new IP/FQDN/DNS
+
+python /opt/xmc/ova/bin/NetworkPostInstall.py
+cp /opt/xmc/ova/xmc_postinstall /etc/init.d/xmc_postinstall
+cd /etc/init.d/
+sysv-rc-conf xmc_postinstall on
+reboot
+

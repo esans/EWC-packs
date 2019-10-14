@@ -1,0 +1,21 @@
+---
+description: Add threat IP to firewall policy table 
+name: create_firewall_policy
+pack: xmc
+ref: xmc.create_firewall_policy
+tags: []
+type:
+  ref: standard
+  parameters:
+enabled: true
+
+trigger:
+  ref: standard
+  type: core.st2.webhook
+  parameters:
+    url: create_firewall_policy
+criteria: {}
+action:
+  ref: xmc.create_firewall_policy
+  parameters:
+    message: '{{trigger.body.message}}'

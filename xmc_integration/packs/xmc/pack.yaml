@@ -1,0 +1,9 @@
+---
+ref: xmc
+name : xmc
+description : XMC and StackStorm integration Pack
+keywords :
+  - Webhook
+version : 1.0.2
+author : Extreme Networks Inc.
+email : support@extremenetworks.com

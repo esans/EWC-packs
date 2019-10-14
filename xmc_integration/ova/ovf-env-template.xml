@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Environment
+     xmlns="http://schemas.dmtf.org/ovf/environment/1"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:oe="http://schemas.dmtf.org/ovf/environment/1"
+     xmlns:ve="http://www.vmware.com/schema/ovfenv"
+     oe:id=""
+     ve:vCenterId="">
+   <PlatformSection>
+      <Kind>VMware ESXi</Kind>
+      <Version></Version>
+      <Vendor>VMware, Inc.</Vendor>
+      <Locale>en</Locale>
+   </PlatformSection>
+   <PropertySection>
+         <Property oe:key="st2Version" oe:value="8.2.0"/>
+         <Property oe:key="DefaultDNS" oe:value="DNS_REPLACE_ME"/>
+         <Property oe:key="DefaultGateway" oe:value="GATEWAY_REPLACE_ME"/>
+         <Property oe:key="DefaultNetmask" oe:value="NETMASK_REPLACE_ME"/>
+         <Property oe:key="DefaultSearchList" oe:value="SEARCHLIST_REPLACE_ME"/>
+         <Property oe:key="my.fqdn" oe:value="MYFQDN_REPLACE_ME"/>
+         <Property oe:key="my.ip" oe:value="MYIP_REPLACE_ME"/>
+         <Property oe:key="timezone" oe:value="TIMEZONE_REPLACE_ME"/>
+         <Property oe:key="xmc.fqdn" oe:value="XMCFQDN_REPLACE_ME"/>
+         <Property oe:key="xmc.ip" oe:value="XMCIP_REPLACE_ME"/>
+         <Property oe:key="xmc.password" oe:value="XMCPASSWORD_REPLACE_ME"/> 
+         <Property oe:key="xmc.user" oe:value="XMCUSER_REPLACE_ME"/>
+         <Property oe:key="firewall_install" oe:value="FIREWALL_INSTALL_REPLACE_ME"/>
+   </PropertySection>
+   <ve:EthernetAdapterSection>
+      <ve:Adapter ve:mac="" ve:network="" ve:unitNumber=""/>
+   </ve:EthernetAdapterSection>
+</Environment>

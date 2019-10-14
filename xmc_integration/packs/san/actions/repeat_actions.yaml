@@ -1,0 +1,27 @@
+---
+name: repeat_actions
+pack: san
+runner_type: "mistral-v2"
+description: Repate firewall createion actions 
+enabled: true
+entry_point: workflows/repeat_actions.yaml
+
+parameters:
+    firewall_names:
+        items:
+            type: string
+        minItems: 1
+        type: array   
+    threat_ip:
+        type: "string"
+        description: "Threat IP"
+        required: true
+    policy_name:
+        type: "string"
+        description: "Firewall policy name"
+        required: true
+    policy_config: 
+        type: "string"
+        description: "Firewall policy that contains rules "
+        required: true
+

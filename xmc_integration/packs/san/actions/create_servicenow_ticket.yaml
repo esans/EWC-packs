@@ -1,0 +1,30 @@
+---
+name: create_servicenow_ticket
+pack: san
+runner_type: "mistral-v2"
+description: Create ServiceNow issue about the incident
+enabled: true
+entry_point: workflows/create_servicenow_ticket.yaml
+
+parameters:
+  table:
+    type: string
+    description: ServiceNow Table to take action on.
+    required: true
+  priority:
+    type: string
+    description: Priority of ServiceNow issue.
+    required: true
+  assigned_to:
+    type: string
+    description: Name of ServiceNow issue assign to.
+    required: false
+  ticket_summary:
+    type: string
+    description: Summary of ServiceNow issue.
+    required: true    
+  ticket_description:
+    type: string
+    description: Description of ServiceNow issue.
+    required: true
+

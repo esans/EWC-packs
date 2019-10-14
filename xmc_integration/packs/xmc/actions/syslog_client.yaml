@@ -1,0 +1,33 @@
+---
+name: syslog_client
+pack: xmc
+runner_type: "python-script"
+description: Syslog client
+enabled: true
+entry_point: syslog_client.py
+parameters:
+    host:
+        type: string
+        description: Syslog service IP address 
+        required: true
+        position: 0
+    level:
+        type: string
+        description: Syslog severity level  
+        required: true
+        position: 1
+        enum:
+            - "Emergency"
+            - "Alert"
+            - "Critical"
+            - "Error"
+            - "Warning"
+            - "Notice"
+            - "Informational"
+            - "Debug"
+    message:
+        type: string
+        description: Syslog message
+        required: true
+        position: 2
+

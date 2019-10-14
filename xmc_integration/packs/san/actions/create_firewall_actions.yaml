@@ -1,0 +1,23 @@
+name: create_firewall_actions
+pack: san
+runner_type: python-script
+description: "Create multiple Firewall actions"
+enabled: true
+entry_point: "python_actions/create_firewall_actions.py"
+parameters:
+    firewall_name:
+        type: "string"
+        description: "Firewall name"
+        required: true
+    threat_ip:
+        type: "string"
+        description: "Threat IP"
+        required: true
+    policy_name:
+        type: "string"
+        description: "Firewall policy name"
+        required: true
+    policy_config: 
+        type: "string"
+        description: "Firewall policy that contains rules "
+        required: true

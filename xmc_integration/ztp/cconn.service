@@ -1,0 +1,11 @@
+[Unit]
+Description=StackStorm Cloud Connector Service
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/python /opt/xmc/ztp/cloud_connector.pyz -p appliances -t st2 -I XMC_IP
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+

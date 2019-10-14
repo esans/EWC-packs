@@ -1,0 +1,23 @@
+version: '2.0'
+
+san.remove_firewall_policy:
+    input:
+        - threat_ip
+        - policy_name
+      
+    tasks:
+        get_list_firewall_services:
+            action: san.get_list_firewall_services
+            publish:
+                list_firewall_services: <% task(get_list_firewall_services).result.result.list_firewall_services %>
+            on-success:
+                - remove_firewalls
+                
+        remove_firewalls:
+            action: san.repeat_remove_actions
+            input:
+                firewall_names: '<% $.list_firewall_services %>'
+                threat_ip: '<% $.threat_ip %>'
+                policy_name: '<% $.policy_name %>'
+  
+

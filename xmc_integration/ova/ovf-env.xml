@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Environment
+     xmlns="http://schemas.dmtf.org/ovf/environment/1"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:oe="http://schemas.dmtf.org/ovf/environment/1"
+     xmlns:ve="http://www.vmware.com/schema/ovfenv"
+     oe:id=""
+     ve:vCenterId="">
+   <PlatformSection>
+      <Kind>VMware ESXi</Kind>
+      <Version></Version>
+      <Vendor>VMware, Inc.</Vendor>
+      <Locale>en</Locale>
+   </PlatformSection>
+   <PropertySection>
+         <Property oe:key="st2Version" oe:value="8.2.0"/>
+         <Property oe:key="DefaultDNS" oe:value="192.168.20.83"/>
+         <Property oe:key="DefaultGateway" oe:value="192.168.20.1"/>
+         <Property oe:key="DefaultNetmask" oe:value="255.255.255.0"/>
+         <Property oe:key="DefaultSearchList" oe:value="showroom.fr"/>
+         <Property oe:key="my.fqdn" oe:value="ewc.showroom.fr"/>
+         <Property oe:key="my.ip" oe:value="192.168.20.87"/>
+         <Property oe:key="timezone" oe:value="Europe/Paris"/>
+         <Property oe:key="xmc.fqdn" oe:value="xmc-beta.showroom.fr"/>
+         <Property oe:key="xmc.ip" oe:value="192.168.20.155"/>
+         <Property oe:key="xmc.password" oe:value="xxxxxxx"/> 
+         <Property oe:key="xmc.user" oe:value="root"/>
+         <Property oe:key="firewall_install" oe:value="FIREWALL_INSTALL_REPLACE_ME"/>
+   </PropertySection>
+   <ve:EthernetAdapterSection>
+      <ve:Adapter ve:mac="" ve:network="" ve:unitNumber=""/>
+   </ve:EthernetAdapterSection>
+</Environment>

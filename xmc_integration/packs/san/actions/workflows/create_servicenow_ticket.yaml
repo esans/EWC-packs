@@ -1,0 +1,32 @@
+version: '2.0'
+
+san.create_servicenow_ticket:
+    input:
+        - table
+        - priority
+        - assigned_to
+        - ticket_summary
+        - ticket_description
+      
+    tasks:
+         create_servicenow_issue:
+            action: servicenow.create_record
+            input:
+                table: <% $.table %>
+                payload: '{"assigned_to": "<% json_escape($.assigned_to) %>", "priority": "<% json_escape($.priority) %>", "short_description": "<% json_escape($.ticket_summary) %>", "description": "<% json_escape($.ticket_description)%>"}'
+            publish:
+                servicenow_number: <% task(create_servicenow_issue).result.result.number %>
+                sys_id: <% task(create_servicenow_issue).result.result.sys_id %>
+                domain_link: <% task(create_servicenow_issue).result.result.sys_domain.link %>
+            on-success:
+                - create_servicenow_url
+         create_servicenow_url:
+            action: san.create_servicenow_url
+            input:
+                domain_link: <% task(create_servicenow_issue).result.result.sys_domain.link %>
+                table: <% $.table %>
+                sys_id: <% task(create_servicenow_issue).result.result.sys_id %>
+            publish:
+                servicenow_number: <% task(create_servicenow_issue).result.result.number %>
+                servicenow_url: <% task(create_servicenow_url).result.result.servicenow_url %>
+

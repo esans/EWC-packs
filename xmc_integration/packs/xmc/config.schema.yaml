@@ -1,0 +1,25 @@
+---
+  xmc_ip:
+    description: "IP address of XMC"
+    type: "string"
+    secret: false
+    required: true
+    default: "IP_REPLACE_ME"
+  xmc_fqdn:
+    description: "FQDN of XMC"
+    type: "string"
+    secret: false
+    required: true
+    default: "FQDN_REPLACE_ME"
+  xmc_username:
+    description: "Username used to XMC authenticate ."
+    type: "string"
+    secret: false
+    required: true
+    default: "USER_REPLACE_ME"
+  st2_api_key:
+    description: "ST2 Long Lived API Key."
+    type: "string"
+    secret: false
+    required: true
+    default: "ST2KEY_REPLACE_ME"

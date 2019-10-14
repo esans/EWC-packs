@@ -1,0 +1,19 @@
+---
+name: parse_string
+pack: xmc
+runner_type: "python-script"
+description: parse message string
+enabled: true
+entry_point: parse_string.py
+parameters:
+    message:
+        type: string
+        description: Message string
+        required: true
+        position: 0
+    key:
+        type: string
+        description: string going to find
+        required: true
+        position: 1
+

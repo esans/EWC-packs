@@ -1,0 +1,36 @@
+---
+firewalls:
+  type: "object"
+  required: true
+  patternProperties:
+      "^\\w+":
+        "$ref": "#/properties/firewall"
+  additionalProperties: false
+
+firewall:
+  type: "object"
+  properties:
+    ip:
+      description: ""
+      type: "string"
+      required: true
+    type:
+      description: ""
+      type: "string"
+      required: true
+      enum:
+        - "fortinet"
+        - "checkpoint"
+        - "paloalto"
+    username:
+      description: ""
+      type: "string"
+      required: true
+      default: "admin"
+    password:
+      description: ""
+      type: "string"
+      required: true
+      secret: true
+  additionalProperties: false
+ 

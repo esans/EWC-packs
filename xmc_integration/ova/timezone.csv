@@ -1,0 +1,26 @@
+Below are the list of avialable timezones, enter the number to select the required timezone:
+1	=> America/Sao_Paulo  	GMT/UTC - 03:00 | 25 => Europe/Moscow		GMT/UTC + 03:00
+2	=> America/Manaus  	GMT/UTC - 04:00	| 26 => Asia/Tehran		GMT/UTC + 03:30 
+3	=> America/Lima  	GMT/UTC - 05:00 | 27 => Asia/Dubai		GMT/UTC + 04:00
+4	=> America/Mexico_City  GMT/UTC - 05:00	| 28 => Europe/Samara		GMT/UTC + 04:00
+5	=> America/New_York  	GMT/UTC - 05:00	| 29 => Indian/Mauritius	GMT/UTC + 04:00
+6	=> America/Chicago  	GMT/UTC - 06:00	| 30 => Asia/Karachi		GMT/UTC + 05:00
+7	=> America/Denver  	GMT/UTC - 06:00	| 31 => Asia/Yekaterinburg	GMT/UTC + 05:00
+8	=> America/Santiago  	GMT/UTC - 06:00	| 32 => Asia/Colombo		GMT/UTC + 05:30
+9	=> America/Los_Angeles  GMT/UTC - 08:00	| 33 => Asia/Kolkata		GMT/UTC + 05:30
+10	=> America/Juneau  	GMT/UTC - 09:00	| 34 => Asia/Kathmandu		GMT/UTC + 05:45
+11	=> Africa/Dakar  	GMT/UTC + 00:00	| 35 => Asia/Omsk		GMT/UTC + 06:00
+12	=> America/Danmarkshavn GMT/UTC + 00:00	| 36 => Asia/Dhaka		GMT/UTC + 06:00
+13	=> Europe/London  	GMT/UTC + 00:00	| 37 => Asia/Jakarta		GMT/UTC + 07:00
+14	=> Africa/Lagos  	GMT/UTC + 01:00	| 38 => Asia/Hong_Kong		GMT/UTC + 08:00
+15	=> Europe/Paris  	GMT/UTC + 01:00	| 39 => Asia/Irkutsk		GMT/UTC + 08:00
+16	=> Europe/Berlin  	GMT/UTC + 01:00	| 40 => Asia/Shanghai		GMT/UTC + 08:00
+17	=> Africa/Cairo  	GMT/UTC + 02:00	| 41 => Asia/Singapore		GMT/UTC + 08:00
+18	=> Africa/Johannesburg  GMT/UTC + 02:00	| 42 => Australia/Perth  	GMT/UTC + 08:00 
+19	=> Europe/Athens  	GMT/UTC + 02:00 | 43 => Asia/Yakutsk		GMT/UTC + 09:00
+20	=> Europe/Bucharest	GMT/UTC + 02:00	| 44 => Asia/Tokyo		GMT/UTC + 09:00
+21	=> Europe/Finland	GMT/UTC + 02:00	| 45 => Australia/Adelaide      GMT/UTC + 09:30
+22	=> Europe/Kiev		GMT/UTC + 02:00	| 46 => Asia/Magadan		GMT/UTC + 10:00
+23	=> Africa/Dar_es_Salaam GMT/UTC + 03:00 | 47 => Australia/Sydney  	GMT/UTC + 10:00
+24	=> Asia/Qatar		GMT/UTC + 03:00	| 48 => Asia/Kamchatka		GMT/UTC + 11:00
+

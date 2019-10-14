@@ -1,0 +1,18 @@
+2019-10-08 13:04:04,426  PostInstall  DEBUG  dns=192.168.20.83
+2019-10-08 13:04:04,426  PostInstall  DEBUG  gatway=192.168.20.1
+2019-10-08 13:04:04,426  PostInstall  DEBUG  netmask=255.255.255.0
+2019-10-08 13:04:04,427  PostInstall  DEBUG  searchlist=showroom.fr
+2019-10-08 13:04:04,427  PostInstall  DEBUG  st2fqdn=ewc.showroom.fr
+2019-10-08 13:04:04,427  PostInstall  DEBUG  st2ip=192.168.20.87
+2019-10-08 13:04:04,427  PostInstall  DEBUG  timezone=Europe/Paris
+2019-10-08 13:04:04,427  PostInstall  DEBUG  xmcfqdn=xmc-beta.showroom.fr
+2019-10-08 13:04:04,428  PostInstall  DEBUG  xmcip=192.168.20.155
+2019-10-08 13:04:04,429  PostInstall  DEBUG  xmcpassword=*********
+2019-10-08 13:04:04,429  PostInstall  DEBUG  xmcuser=root
+2019-10-08 13:04:04,430  PostInstall  DEBUG  firewall_install=FIREWALL_INSTALL_REPLACE_ME
+2019-10-08 13:04:04,431  PostInstall  DEBUG  st2mac=
+2019-10-08 13:04:04,431  PostInstall  DEBUG  Done for loading file /opt/xmc/ova/ovf-env.xml
+2019-10-08 13:04:04,432  PostInstall  DEBUG  Updated file /etc/network/interfaces
+2019-10-08 13:04:04,433  PostInstall  DEBUG  Updated file /etc/hostname
+2019-10-08 13:04:04,434  PostInstall  DEBUG  Updated file /etc/hosts
+2019-10-08 13:04:29,467  PostInstall  DEBUG  New TimeZone Location = /usr/share/zoneinfo/Europe/Paris

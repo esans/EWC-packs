@@ -1,0 +1,17 @@
+---
+name: remove_operator_limit_port
+pack: xmc
+runner_type: "mistral-v2"
+description: Remove operator limit configuration
+enabled: true
+entry_point: workflows/remove_operator_limit_port.yaml
+
+parameters:
+    deviceip:
+        type: "string"
+        required: true
+        description: "Remote device IP or hostname"
+    message:
+        type: "string"
+        required: true
+        description: "Message that contains port information"

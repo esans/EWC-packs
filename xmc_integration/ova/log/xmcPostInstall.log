@@ -1,0 +1,35 @@
+2019-10-11 15:09:17,667  PostInstall  DEBUG  dns=192.168.20.83
+2019-10-11 15:09:17,667  PostInstall  DEBUG  gatway=192.168.20.1
+2019-10-11 15:09:17,667  PostInstall  DEBUG  netmask=255.255.255.0
+2019-10-11 15:09:17,667  PostInstall  DEBUG  searchlist=showroom.fr
+2019-10-11 15:09:17,667  PostInstall  DEBUG  st2fqdn=ewc.showroom.fr
+2019-10-11 15:09:17,667  PostInstall  DEBUG  st2ip=192.168.20.87
+2019-10-11 15:09:17,668  PostInstall  DEBUG  timezone=Europe/Paris
+2019-10-11 15:09:17,668  PostInstall  DEBUG  xmcfqdn=xmc-beta.showroom.fr
+2019-10-11 15:09:17,668  PostInstall  DEBUG  xmcip=192.168.20.155
+2019-10-11 15:09:17,668  PostInstall  DEBUG  xmcpassword=*********
+2019-10-11 15:09:17,668  PostInstall  DEBUG  xmcuser=root
+2019-10-11 15:09:17,668  PostInstall  DEBUG  firewall_install=FIREWALL_INSTALL_REPLACE_ME
+2019-10-11 15:09:17,668  PostInstall  DEBUG  st2mac=
+2019-10-11 15:09:17,669  PostInstall  DEBUG  Done for loading file /opt/xmc/ova/ovf-env.xml
+2019-10-11 15:09:17,669  PostInstall  DEBUG  Waiting two minutes for StackStorm to up running.
+2019-10-11 15:11:44,115  PostInstall  DEBUG  XMC pack is installed.
+2019-10-11 15:12:13,935  PostInstall  DEBUG  JIRA pack is installed.
+2019-10-11 15:12:36,042  PostInstall  DEBUG  ServiceNow pack is installed.
+2019-10-11 15:12:47,170  PostInstall  DEBUG  Generate ST2 Auth token ...
+2019-10-11 15:12:47,178  requests.packages.urllib3.connectionpool  DEBUG  Starting new HTTPS connection (1): 192.168.20.87
+2019-10-11 15:12:47,207  requests.packages.urllib3.connectionpool  DEBUG  https://192.168.20.87:443 "POST /auth/v1/tokens HTTP/1.1" 201 200
+2019-10-11 15:12:47,209  PostInstall  DEBUG  Generated ST2 Auth token: e3be29579e5141eb90afeb8d2e658fca
+2019-10-11 15:12:47,209  PostInstall  DEBUG  Generate ST2 API key with token e3be29579e5141eb90afeb8d2e658fca st2admin extreme
+2019-10-11 15:12:47,211  requests.packages.urllib3.connectionpool  DEBUG  Starting new HTTPS connection (1): 192.168.20.87
+2019-10-11 15:12:47,294  requests.packages.urllib3.connectionpool  DEBUG  https://192.168.20.87:443 "POST /api/v1/apikeys HTTP/1.1" 201 436
+2019-10-11 15:12:47,296  PostInstall  DEBUG  Generated ST2 API key
+2019-10-11 15:12:47,297  PostInstall  DEBUG  Encrypt xmc password...
+2019-10-11 15:12:47,300  requests.packages.urllib3.connectionpool  DEBUG  Starting new HTTPS connection (1): 192.168.20.87
+2019-10-11 15:12:47,378  requests.packages.urllib3.connectionpool  DEBUG  https://192.168.20.87:443 "PUT /api/keys/xmckey HTTP/1.1" 200 314
+2019-10-11 15:12:47,382  PostInstall  DEBUG  Updated file /opt/stackstorm/packs/xmc/config.schema.yaml
+2019-10-11 15:12:49,191  PostInstall  DEBUG  Created file /opt/stackstorm/rbac/assignments/xmcadmin.yaml
+2019-10-11 15:12:49,202  PostInstall  DEBUG  Created file /opt/stackstorm/packs/xmc/ST2Integration/config/.st2info.json
+2019-10-11 15:12:49,203  PostInstall  DEBUG  scp -rp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null /opt/stackstorm/packs/xmc/ST2Integration/ root@192.168.20.155:/usr/local/Extreme_Networks/NetSight
+2019-10-11 15:12:49,470  PostInstall  DEBUG  /opt/stackstorm/packs/xmc/ST2Integration/config/.st2info.json is removed
+2019-10-11 15:12:49,470  PostInstall  DEBUG  Transferred files from /opt/stackstorm/packs/xmc/ST2Integration/ to /usr/local/Extreme_Networks/NetSight

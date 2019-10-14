@@ -1,0 +1,52 @@
+#! /usr/bin/expect 
+
+set cmd_temps [lindex $argv 0]
+set cmds [string trim $cmd_temps "\""]
+set ip [lindex $argv 1]
+set user [lindex $argv 2]
+set password [lindex $argv 3]
+set device_family  [lindex $argv 4]
+set need_log [lindex $argv 5]
+
+set RETVAL 0
+log_user 1
+
+if {$need_log == True} {
+    set file /home/stanley/$ip.txt
+    exec touch $file
+    log_file -a $file
+}
+
+spawn ssh -q -o StrictHostKeyChecking=no $user@$ip
+expect {
+  {*password*?} {send "$password\r"}
+}
+
+set cmdlst [split $cmds ","]
+puts [llength $cmdlst]
+
+foreach cmd $cmdlst {
+    if { $device_family == "Summit Series" } {
+        expect {
+            {*#*} { send "$cmd\r" }
+        }
+    } elseif { $device_family == "B-Series"} { 
+        expect {
+            {(su)->} { send "$cmd\r" }
+        }
+    } else {
+        expect {
+            {*#*} { send "$cmd\r"}
+        } 
+    }
+}
+
+expect {
+    "% Invalid input detected at '^' marker." {set RETVAL 1}
+}
+
+expect {
+  {>} {send "exit\r"}
+}
+
+exit $RETVAL

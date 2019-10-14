@@ -1,0 +1,20 @@
+version: '2.0'
+
+san.repeat_actions:
+    description: >
+        A Workflow to repeat to operate firewall actions.
+    type: direct
+    input:
+        - firewall_names
+        - threat_ip
+        - policy_name
+        - policy_config
+    tasks:
+        repeat:
+            with-items: firewall_name in <% $.firewall_names %>
+            action: san.create_firewall_actions
+            input:
+                firewall_name: '<% $.firewall_name %>'
+                threat_ip: '<% $.threat_ip %>'
+                policy_name: '<% $.policy_name %>'
+                policy_config: '<% $.policy_config %>'

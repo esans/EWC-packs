@@ -1,0 +1,21 @@
+---
+name: create_firewall_policy
+pack: san
+runner_type: "mistral-v2"
+description: Add threat IP to Fortinet, Checkpoint or Polo Alto firewall policy table 
+enabled: true
+entry_point: workflows/create_firewall_policy.yaml
+
+parameters:
+    threat_ip:
+        type: "string"
+        description: "Threat IP"
+        required: true
+    policy_name:
+        type: "string"
+        description: "Firewall policy name"
+        required: true
+    policy_config: 
+        type: "string"
+        description: "Firewall policy that contains rules "
+        required: true
